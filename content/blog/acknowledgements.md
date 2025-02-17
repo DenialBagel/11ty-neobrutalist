@@ -1,7 +1,7 @@
 ---
 title: Acknowledgements
 description: Thank you to creator of Eleventy.
-image: /img/cover.webp
+image: /img/logos.png
 date: Last Modified
 tags: Long title
 ---
