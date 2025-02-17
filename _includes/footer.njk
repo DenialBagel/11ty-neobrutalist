@@ -1,0 +1,9 @@
+<section class="alert error">
+<h3><a href="{{metadata.url}}" class="non">{{metadata.title}}</a></h3>
+<p>{{metadata.description}}</p>
+<p>{% for nav in metadata.navbar %}
+<a href="{{nav.url}}" class="nb-button blue pp">{{nav.nav}}</a>{% endfor %}
+</p>
+</section>
+<footer><p>Built With <a href="https://11ty.dev" target="_blank">{{ eleventy.generator }}</a> {{metadata.footer.text1}} 
+<a href="{{metadata.footer.text2_url}}" target="_blank">{{metadata.footer.text2}}</a></footer>

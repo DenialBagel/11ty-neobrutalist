@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+<section>
+<div class="sides">
+<div class="main-content">
+<div class="alert info start">
+<div class="toci">
+<h3>{{metadata.toc}}</h3>
+{{content|toc|safe}}
+</div>
+</div>
+</div>
+<div class="notes">
+<h3><a href="{{page.url}}">{{title}}</a></h3>
+<h4>{{description}}</h4>
+{{content|safe}}
+</div>
+</div>
+</section>

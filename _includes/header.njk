@@ -1,0 +1,9 @@
+<header class="alert success">
+<h1><a href="{{metadata.url}}" class="non">{{metadata.title}}</a></h1>
+<h2>{{metadata.description}}</h2>
+<div class="alert warning">
+<div class="marquee-content">{% for nav in metadata.navbar %}
+<a href="{{nav.url}}" class="nb-button orange">{{nav.nav}}</a>{% endfor %}
+</div>
+</div>       
+</header>
