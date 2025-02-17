@@ -1,0 +1,37 @@
+---
+layout: base.njk
+---
+<section>
+<div class="sides">
+<div class="main-content">
+<div class="alert info start">
+<div class="toci">
+<h3>{{metadata.toc}}</h3>
+{{content|toc|safe}}
+</div>
+</div>
+</div>
+<div class="notes">
+<h3><a href="{{page.url}}">{{title}}</a></h3>
+<h4>{{description}}</h4>
+<div class="avatar bg-pale-red">
+<a href="{{metadata.author.url}}"><img src="{{metadata.author.image}}" alt="{{metadata.author.name}}" /></a>
+</div>
+<p>By <a href="{{metadata.author.url}}">{{metadata.author.name}}</a> on <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+<p>Tags: {%- for tag in tags | filterTagList %}{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %} <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}	{%- endfor %}</p>
+{{content|safe}}
+</div>
+</div>
+{%- if collections.posts %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+{%- set nextPost = collections.posts | getNextCollectionItem %}
+{%- if nextPost or previousPost %}
+<div class="alert warning">
+<div class="marquee-content">
+{%- if previousPost %}<a class="nb-button default" href="{{ previousPost.url }}">← {{ previousPost.data.title }}</a>{% endif %}
+{%- if nextPost %}<a class="nb-button default" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>{% endif %}
+</div>
+</div>
+{%- endif %}
+{%- endif %}
+</section>

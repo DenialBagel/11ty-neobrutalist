@@ -1,0 +1,31 @@
+---
+layout: base.njk
+---
+<section class="alert info">
+<h2><a href="{{page.url}}" class="non">{{title}}</a></h2>
+<h3>{{description}}</h3>
+{{ content | safe }}
+<div class="grid-container">
+{% for post in collections.posts | reverse | limit (6) %}
+<div class="grid-item">
+<div class="card  alert warning">
+<a href="{{post.url}}">
+<div class="card-thumbnail">
+<img src="{{post.data.image or metadata.image}}" loading="lazy" alt="{{post.data.title or metadata.title}}" class="card-thumbnail"/>
+</div>
+<div class="card-content">
+<div class="text-small"><time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLLL yyyy") }}</time></div>
+<h3><strong>{{post.data.title}}</strong></h3>
+<!--<p>{{post.data.description}}</p>-->
+</div>
+</a>
+</div>         
+</div>
+{% endfor %}
+</div>
+<div class="alert warning">
+<div class="marquee-content">
+<a href="/blog" class="nb-button default"> Explore All Posts </a>
+</div>
+</div>
+</section>
