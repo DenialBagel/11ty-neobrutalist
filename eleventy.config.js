@@ -6,6 +6,8 @@ import yaml from "js-yaml";
 import htmlmin from "html-minifier-terser";
 import markdownIt from 'markdown-it';
 import markdownItAnchor from "markdown-it-anchor";
+import markdownItFootnote from "markdown-it-footnote";
+import markdownItAttrs from 'markdown-it-attrs';
 import pluginTOC from 'eleventy-plugin-toc';
 import pluginFilters from "./_config/filters.js";
 export default async function(eleventyConfig) {
@@ -29,6 +31,26 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
 	});
+	eleventyConfig.addPlugin(IdAttributePlugin, {
+		slugify: (text) => {
+		  const slug = eleventyConfig.getFilter("slugify")(text);
+		  return `print-${slug}`;
+		}
+	  });
+eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+		preAttributes: { tabindex: 0 }
+	});  let options = {
+    html: true,
+    breaks: true,
+    linkify: true,
+      permalink: true,
+    typographer: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "#"
+  };
+   let markdownLib = markdownIt(options).use(markdownItAttrs).use(markdownItFootnote);
+  eleventyConfig.setLibrary("md", markdownLib);
+
 	  eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {
 			permalink: markdownItAnchor.permalink.ariaHidden({
@@ -41,18 +63,12 @@ export default async function(eleventyConfig) {
 			slugify: eleventyConfig.getFilter("slugify")
 		});
 	});
-	eleventyConfig.addPlugin(IdAttributePlugin, {
-		slugify: (text) => {
-		  const slug = eleventyConfig.getFilter("slugify")(text);
-		  return `print-${slug}`;
-		}
-	  });
 	  eleventyConfig.addPlugin(pluginTOC, {
 		tags: ['h2', 'h3', 'h4', 'h5'],
 		  id: 'toci', 
 		  class: 'list-group',
 		ul: true,
-		flat: true,
+		flat: false,
 		wrapper: 'div'
 	  });
 
