@@ -1,34 +1,38 @@
-title: "11ty Neo Brutalist"
-description: "A 11ty Starter Neo Brutlaist develop by Adam Dj Brett"
+title: "Denial Bagel"
+description: "Rachel's Thought Catalog"
 language: "en"
 locale: en_US
 image: /img/logos.png
 favicon: /img/logos.png
 url: "https://neobrutalist.000000076.xyz/"
 #url: "http://localhost:8080"
-metasocial: 
+metasocial:
  - facebook: "https://www.facebook.com/"
  - twitteruser: "@username"
  - twitter: "https://x.com/user"
 toc: On This Page
-navbar: 
+navbar:
  - nav: Home
    url: /
  - nav: About
    url: /about/
  - nav: Contact
-   url: https://www.adamdjbrett.com
- - nav: Github
-   url: https://github.com/adamdjbrett/11ty-neobrutalist
+   url: /contact/
+ - nav: Travels
+   url: /travels/
+ - nav: Shower Thoughts
+   url: /shower-thoughts/
+ - nav: Food
+   url: /food/
 
 
-footer: 
- text1: Develop by
- text2: Adam Dj Brett
- text2_url: https://adamdjbrett.com
+footer:
+ text1: Developed by
+ text2: Rachel
+ text2_url: /
 
-author: 
- name: "Adam DJ Brett"
+author:
+ name: "Rachel Yu"
  image: "https://avatars.githubusercontent.com/u/22662978?v=4"
  email: "info@adamdjbrett.com"
  url: "/about/"

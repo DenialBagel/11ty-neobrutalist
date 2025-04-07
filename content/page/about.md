@@ -1,7 +1,7 @@
 ---
 title: About
-description: About Neobrutalist
+description: About Me
 permalink: /about/
 ---
 
-[NeoBrutalism CSS](https://github.com/OshekharO/Neubrutalism) meets 11ty.
+# Hi, I'm Rachel
